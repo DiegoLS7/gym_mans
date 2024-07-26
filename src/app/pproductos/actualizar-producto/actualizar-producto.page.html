@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="warning">
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">¡¡Actualice su Producto!!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo-agre">
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <!-- el ngmodel permite cargar los datos del producto -->
+        <ion-input type="text"  [(ngModel)]="producto.Titulo" #Titulo              ></ion-input>
+        <ion-input type="text" [(ngModel)]="producto.ImagenURL" #ImagenURL                 ></ion-input>
+        <ion-input type="text" [(ngModel)]="producto.Comentarios" #Comentarios          ></ion-input>
+        <ion-button color="warning"  (click)="actualizarProducto(Titulo,ImagenURL,Comentarios)">Actualizar</ion-button>
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
+</ion-content>

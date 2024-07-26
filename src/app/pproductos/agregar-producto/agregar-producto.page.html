@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="warning">
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/pproductos"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">¡¡Agregue su producto aqui!!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo-agre">
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-input type="text" placeholder="Titulo" #titulo ></ion-input>
+        <ion-input type="file" accept="image/*"  [(ngModel)]="imagenFilePath" (change)="capturarImagen($event)" ></ion-input>
+        <ion-input type="text" placeholder="Comentario"  #comentarios ></ion-input>
+        <ion-input type="int" placeholder="Valor en numero  porfa"  #precio ></ion-input>
+
+        <ion-item>
+        <ion-label> Producto Nacional </ion-label>
+        <ion-checkbox color="secondary" #checktipoproducto> </ion-checkbox>
+        </ion-item>
+        <ion-input type="file" #imagenproducto> </ion-input>
+  
+        <ion-item>
+        <ion-label>Tipo Producto</ion-label>
+          <ion-select placeholder="Seleccione tipo producto" interface="popover">
+            <ion-select-option *ngFor="let l of listado" [value]="l.id"> {{l.Descripcion}} </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-button color="warning"  (click)="agregarProducto(titulo,comentarios,precio)">agregar</ion-button>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

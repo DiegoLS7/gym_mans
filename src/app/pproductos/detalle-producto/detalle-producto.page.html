@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>{{producto.Titulo}}</ion-title>
+    <ion-buttons slot="start" >  
+    <ion-back-button> </ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" >  
+      <ion-button (click)="editarProducto()">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="eliminar()"> 
+      <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-grid class="ion-no-padding" >
+    
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="producto.ImagenURL"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">{{producto.Titulo}}</h1>
+      </ion-col>
+    </ion-row>
+
+    <!--comentarios-->
+    <ion-row>
+      <ion-col>
+         <ion-list >
+         <ion-col>
+           
+            <h1 class="ion-text-center"> {{producto.Comentarios ? producto.Comentarios:"Sin comentarios"}}</h1>
+           
+           </ion-col>
+         </ion-list>
+        
+         <ng-template #sinComentarios>
+            <ion-text>
+              <p class="ion-text-center">El producto no contiene comentarios</p>
+            </ion-text>
+          </ng-template>
+      </ion-col>
+    </ion-row>
+    <!-- tipo producto -->
+    <ion-row>
+      <ion-col>
+         <ion-list *ngIf=" tipo-producto.descripcion && tipo-producto.descripcion.length > 0; else sinDescripcion">
+           <ion-item *ngFor="let com of tipo-producto.descripcion">
+             {{com}}
+           </ion-item>
+         </ion-list>
+        
+         <ng-template #sinDescripcion>
+            <ion-text>
+              <p class="ion-text-center">El producto no contiene Descripcion</p>
+            </ion-text>
+          </ng-template>
+
+
+      <ion-row>
+        <ion-col>
+          <ion-list >
+            <ion-col>
+           
+            <h1 class="ion-text-center"> Precio:$ {{producto.Precio ? producto.Precio:"Sin Precio"}} </h1>
+           
+            </ion-col>
+          </ion-list>
+        
+         <ng-template #sinPrecio>
+            <ion-text>
+              <p class="ion-text-center">El producto no contiene Precio</p>
+            </ion-text>
+          </ng-template>
+        </ion-col>
+      </ion-row>
+
+
+      </ion-col>
+    </ion-row>
+    <!--  -->
+  </ion-grid>
+
+</ion-content>

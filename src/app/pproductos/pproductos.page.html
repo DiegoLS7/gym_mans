@@ -1,0 +1,32 @@
+<ion-header>
+  <app-header [title]="titulos" [username]="usuario">
+
+  </app-header>
+</ion-header>
+
+<ion-content class="fondo-productos">
+  
+  <ion-list>
+    <ion-item *ngFor="let pro of pproductos" [routerLink]="['/pproductos', pro.id]">
+
+    <ion-avatar >
+      <ion-img [src]="'http://localhost:1337' + pro.Imagen.url" ></ion-img>
+    </ion-avatar>
+
+    <ion-label>
+      {{pro.Titulo}}
+    </ion-label>
+
+
+
+    </ion-item>
+
+  </ion-list>
+
+<ion-fab vertical="bottom" horizontal="end" slot ="fixed">
+  <ion-fab-button color="warning" (click)="rediccionagregar()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>
+
